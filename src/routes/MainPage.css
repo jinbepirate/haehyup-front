@@ -1,0 +1,17 @@
+.fade-appear,
+.fade-enter {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.fade-appear-active,
+.fade-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 500ms, transform 500ms;
+}
+
+.main-page {
+  text-align: center;
+  margin-top: 50px;
+}
