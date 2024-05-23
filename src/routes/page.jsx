@@ -6,13 +6,15 @@ import "./MainPage.css";
 
 export default function MainPage() {
   return (
-    <CSSTransition in={true} appear={true} timeout={500} classNames="fade">
-      <div className="main-page">
-        <h1>
-          <b>This is my MainPage</b>
-        </h1>
-        <style type="text/css">
-          {`
+    <>
+      <CSSTransition in={true} appear={true} timeout={800} classNames="fade">
+        <div className="main-page">
+          <h1>
+            <b style={{ color: "blue" }}>Study with HaeHyup</b>
+          </h1>
+          <style type="text/css">
+            {`
+          
       .btn-flat {
         background-color: purple;
         color: white;
@@ -23,12 +25,19 @@ export default function MainPage() {
         font-size: 1.5rem;
       }
       `}
-        </style>
-        <p>MainPage입니다. </p>
-        <Button as={Link} to="/board" variant="flat" size="xxl">
-          Go to Board
-        </Button>{" "}
-      </div>
-    </CSSTransition>
+          </style>
+          <p>MainPage입니다. </p>
+          <Button as={Link} to="/board" variant="flat" size="xxl">
+            Let's Study🌊
+          </Button>{" "}
+          <Button as={Link} to="/signin" variant="flat" size="xl">
+            Login
+          </Button>{" "}
+          <Button as={Link} to="/signup" variant="flat" size="xl">
+            Sign Up
+          </Button>{" "}
+        </div>
+      </CSSTransition>
+    </>
   );
 }

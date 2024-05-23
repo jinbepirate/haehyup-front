@@ -1,3 +1,15 @@
+@keyframes gradientBackground {
+  0% {
+    background-color: #83b5f6;
+  }
+  50% {
+    background-color: #83b5f6;
+  }
+  100% {
+    background-color: #83b5f6;
+  }
+}
+
 .fade-appear,
 .fade-enter {
   opacity: 0;
@@ -12,6 +24,10 @@
 }
 
 .main-page {
-  text-align: center;
-  margin-top: 50px;
+  height: 100vh; /* Ensure the background covers the full viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: gradientBackground 15s ease infinite; /* Apply the animation */
 }
