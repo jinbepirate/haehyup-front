@@ -1,15 +1,20 @@
 @keyframes gradientBackground {
   0% {
-    background-color: #83b5f6;
+    background-color: #09425d;
   }
   50% {
-    background-color: #7283e4;
+    background-color: #21dbdb;
   }
   100% {
-    background-color: #334ec6;
+    background-color: #1aacac;
   }
 }
-
+.main-page img {
+  max-width: 25%;
+  height: auto;
+  margin-bottom: 30px; /* Space between the image and the content below */
+  border-radius: 50%;
+}
 .button-container {
   display: flex;
   flex-direction: column;
@@ -24,4 +29,21 @@
   justify-content: center;
   align-items: center;
   animation: gradientBackground 15s ease infinite; /* Apply the animation */
+  /* background: url("src/img/haehyup-logo.jpg") no-repeat center center fixed;
+  background-size: cover; */
+  font-family: "Noto Sans KR", sans-serif;
+}
+h1 {
+  text-shadow: 2px 2px 4px #000;
+}
+.btn-flat {
+  background-color: purple;
+  color: white;
+  border-radius: 20px; /* 모서리 둥글게 */
+  transition: transform 0.2s; /* 호버 시 변환 효과를 위해 */
+}
+
+.btn-flat:hover {
+  transform: scale(1.05); /* 버튼을 약간 확대 */
+  background-color: #5e17eb; /* 호버 시 색상 변경 */
 }
