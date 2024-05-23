@@ -1,3 +1,4 @@
+import LogoImg from "~/img/haehyup-logo.jpg";
 import {
   Container,
   Nav,
@@ -6,13 +7,14 @@ import {
   Offcanvas,
 } from "react-bootstrap";
 const EXPAND_BREAKPOINT = "md";
+const BRAND_TITLE = "HaeHyup";
 
 // MyNavbar.prototype = {
 //   brandTitle: PropTypes.string,
 //   offCanvasTitle: PropTypes.string,
 // };
 
-export default function MyNavbar({ brandTitle, offCanvasTitle }) {
+export default function MyNavbar() {
   return (
     <Navbar
       expand={EXPAND_BREAKPOINT}
@@ -22,7 +24,7 @@ export default function MyNavbar({ brandTitle, offCanvasTitle }) {
       variant="dark"
     >
       <Container fluid>
-        <Navbar.Brand href="#">{brandTitle}</Navbar.Brand>
+        <Navbar.Brand href="#"><img src={LogoImg} alt='logo image' height='50' /></Navbar.Brand>
         <Navbar.Toggle aria-controls={`Navbar-expand-${EXPAND_BREAKPOINT}`} />
         <Navbar.Offcanvas
           id={`Navbar-expand-${EXPAND_BREAKPOINT}`}
@@ -31,7 +33,7 @@ export default function MyNavbar({ brandTitle, offCanvasTitle }) {
         >
           <Offcanvas.Header closeButton>
             <Offcanvas.Title id={`NavbarLabel-expand-${EXPAND_BREAKPOINT}`}>
-              {offCanvasTitle || brandTitle}
+              { BRAND_TITLE }
             </Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body className="flex-row-reverse">
