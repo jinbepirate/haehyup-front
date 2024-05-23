@@ -26,16 +26,22 @@ export default function MainPage() {
       }
       `}
           </style>
-          <p>MainPage입니다. </p>
-          <Button as={Link} to="/board" variant="flat" size="xxl">
-            Let's Study🌊
-          </Button>{" "}
-          <Button as={Link} to="/signin" variant="flat" size="xl">
-            Login
-          </Button>{" "}
-          <Button as={Link} to="/signup" variant="flat" size="xl">
-            Sign Up
-          </Button>{" "}
+          <br></br>
+          <p>
+            <b> “탁월함은 기술이 아니다. 태도입니다.” – 랄프 마스턴.</b>{" "}
+          </p>
+          <br></br>
+          <div className="button-container">
+            <Button as={Link} to="/board" variant="flat" size="xxl">
+              Let's Study🌊
+            </Button>
+            <Button as={Link} to="/signin" variant="flat" size="xl">
+              Login
+            </Button>
+            <Button as={Link} to="/signup" variant="flat" size="xl">
+              Sign Up
+            </Button>
+          </div>
         </div>
       </CSSTransition>
     </>
