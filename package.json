@@ -1,4 +1,5 @@
 {
+
   "name": "haehyup",
   "private": true,
   "version": "0.0.0",
@@ -11,8 +12,18 @@
   },
   "dependencies": {
     "package.json": "^2.0.1",
+    "axios": "^1.7.2",
+    "bootstrap": "^5.3.3",
+    "localforage": "^1.10.0",
+    "match-sorter": "^6.3.4",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-bootstrap": "^2.10.2",
+    "react-bootstrap-icons": "^1.11.4",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.23.1",
+    "react-transition-group": "^4.4.5",
+    "react-tsparticles": "^2.12.2",
+    "sort-by": "^1.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
