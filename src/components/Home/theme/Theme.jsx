@@ -7,7 +7,7 @@ export default function ThemeComponent() {
   // useEffect를 이용해서 theme 정보를 가져오는 함수
   useEffect(() => {
     // theme 정보 가져오기
-    
+    setThemeList()
     
   }, []);
   return (
