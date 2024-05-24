@@ -12,7 +12,7 @@ import { theme } from "../dummy.json";
  */
 
 export const getThemeList = () => {
-  return theme;
+  return theme.map((theme) => theme);
 }
 // export const getThemeList = async () => {
 //   try {

@@ -30,6 +30,8 @@
 
     "match-sorter": "^6.3.4",
 
+    "mdb-react-ui-kit": "^8.0.0",
+
     "package.json": "^2.0.1",
 
     "react": "^18.2.0",
@@ -42,11 +44,17 @@
 
     "react-router-dom": "^6.23.1",
 
+    "react-swipeable-views-react-18-fix": "^0.14.1",
+
     "react-transition-group": "^4.4.5",
 
     "react-tsparticles": "^2.12.2",
 
-    "sort-by": "^1.2.0"
+    "semantic-ui-react": "^2.1.5",
+
+    "sort-by": "^1.2.0",
+
+    "swiper": "^11.1.3"
 
   },
 

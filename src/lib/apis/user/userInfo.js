@@ -11,7 +11,7 @@ import { user } from "../dummy.json";
  * getUser().then((response) => console.log(response));
  */
 export const getUserById = (userId) => {
-  return user[userId];
+  return user.find((user) => user._id === userId);
 }
 // export const getUserById = async (userId) => {
 //   const resp = axios.get(`/api/user/${userId}`);

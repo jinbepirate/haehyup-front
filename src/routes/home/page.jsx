@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react";
 import ThemeComponent from "../../components/Home/theme/Theme";
 import ProfileComponent from "../../components/Home/profile/Profile";
-import { Display } from "react-bootstrap-icons";
+// import { Display } from "react-bootstrap-icons";
 
 export default function HomePage() {
 

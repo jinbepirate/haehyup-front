@@ -1,4 +1,17 @@
 import { useEffect, useState } from 'react';
+import { getThemeList } from '../../../lib/apis/studyRoom/theme';
+// import 'swiper/css';
+// import 'swiper/css/navigation';
+// import 'swiper/css/pagination';
+// import 'swiper/css/scrollbar';
+import { Virtual } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectCoverflow, Pagination } from 'swiper/modules';
+import "./Theme.css"
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
+
 
 export default function ThemeComponent() {
   // theme 정보를 가져와서 상태로 관리
@@ -7,13 +20,42 @@ export default function ThemeComponent() {
   // useEffect를 이용해서 theme 정보를 가져오는 함수
   useEffect(() => {
     // theme 정보 가져오기
-    setThemeList()
-    
+    const v = getThemeList();
+    setThemeList(v);
+    console.log(v, typeof v);
   }, []);
+
   return (
-    <div>
-      theme components
-      map 함수로 themeList를 이용해서 theme component를 렌더링
-    </div>
+    
+    <Swiper 
+      effect={'coverflow'}
+      grabCursor={true}
+      centeredSlides={true}
+      slidesPerView={'auto'}
+      coverflowEffect={{
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: true,
+      }}
+      pagination={true}
+      modules={[EffectCoverflow, Pagination]}
+      className="mySwiper"
+    >
+      {
+        themeList.map((theme) => {
+          return (
+            <SwiperSlide style={{maxWidth:"500px"}} key={theme._id}>
+              {/* <img src={theme.imageUrl} alt={theme.themeName} /> */}
+              <div >
+                <img src={theme.imageUrl} alt={theme.themeName} />
+              </div>
+            </SwiperSlide>
+          )
+        })
+      }
+    </Swiper>
+      
   )
 }
