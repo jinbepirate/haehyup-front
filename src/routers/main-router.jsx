@@ -4,6 +4,7 @@ import MainPage from "~/routes/page";
 import HomePage from "../routes/board/page";
 import Signup from "~/routes/board/signup/signup";
 import Signin from "../routes/board/signin/signin";
+import MyPage from "../routes/board/mypage/mypage";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "signin",
     element: <Signin />,
+  },
+  {
+    path: "mypage",
+    element: <MyPage />,
   },
 ]);
 export default router;

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import { CSSTransition } from "react-transition-group";
 import "./MainPage.css";
-// import "./MainPageBack.scss";
 
 export default function MainPage() {
   return (
@@ -12,7 +11,9 @@ export default function MainPage() {
         <div className="main-page">
           <img src="src\img\haehyup-logo.jpg" alt="HaeHyup Logo" />
           <h1>
-            <b style={{ color: "white" }}>Study with HaeHyup</b>
+            <b style={{ color: "white", textShadow: "2px 2px 4px #000" }}>
+              Study with HaeHyup
+            </b>
           </h1>
           <style type="text/css">
             {`
