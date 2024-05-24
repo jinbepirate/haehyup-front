@@ -1,0 +1,87 @@
+{
+  "theme": [
+    {
+      "_id": "1",
+      "themeName": "Under the Sea",
+      "imageUrl": "https://img.freepik.com/free-photo/pastel-sky-background-with-text-space_53876-125302.jpg?size=626&ext=jpg&ga=GA1.1.2082370165.1716422400&semt=sph",
+      "musicUrl": "https://www.youtube.com/watch?v=6J1h1i3fjvA",
+      "description": "A theme and the music will make you feel like you're under the sea, swimming with the fishes."
+    },
+    {
+      "_id": "2",
+      "themeName": "Forest",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZq2JMWB0PigI5_zWN9646L_6Qrc3f0rHyqrf_CIE_pA&s",
+      "musicUrl": "https://www.youtube.com/watch?v=6J1h1i3fjvA",
+      "description": "A theme and the music will make you feel like you're in the forest, surrounded by trees and animals."
+    },
+    {
+      "_id": "3",
+      "themeName": "In the Rain",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzJskSlPUbi9j9mhy5M5m7_YPiIjXu8tnDMReejhR5cQ&s",
+      "musicUrl": "https://www.youtube.com/watch?v=6J1h1i3fjvA",
+      "description": "A theme and the music will make you feel like you're in the rain, listening to the sound of raindrops."
+    },
+    {
+      "_id": "4",
+      "themeName": "Space",
+      "imageUrl": "https://i.pinimg.com/236x/d8/63/1a/d8631ac82516d49d2e0284c8101704d2.jpg",
+      "musicUrl": "https://www.youtube.com/watch?v=6J1h1i3fjvA",
+      "description": "A theme and the music will make you feel like you're in space, surrounded by stars and planets."
+    },
+    
+    {
+      "_id": "5",
+      "themeName": "Under the Sea",
+      "imageUrl": "https://img.freepik.com/free-photo/pastel-sky-background-with-text-space_53876-125302.jpg?size=626&ext=jpg&ga=GA1.1.2082370165.1716422400&semt=sph",
+      "musicUrl": "https://www.youtube.com/watch?v=6J1h1i3fjvA",
+      "description": "A theme and the music will make you feel like you're under the sea, swimming with the fishes."
+    },
+    {
+      "_id": "6",
+      "themeName": "Forest",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZq2JMWB0PigI5_zWN9646L_6Qrc3f0rHyqrf_CIE_pA&s",
+      "musicUrl": "https://www.youtube.com/watch?v=6J1h1i3fjvA",
+      "description": "A theme and the music will make you feel like you're in the forest, surrounded by trees and animals."
+    },
+    {
+      "_id": "7",
+      "themeName": "In the Rain",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzJskSlPUbi9j9mhy5M5m7_YPiIjXu8tnDMReejhR5cQ&s",
+      "musicUrl": "https://www.youtube.com/watch?v=6J1h1i3fjvA",
+      "description": "A theme and the music will make you feel like you're in the rain, listening to the sound of raindrops."
+    },
+    {
+      "_id": "8",
+      "themeName": "Space",
+      "imageUrl": "https://i.pinimg.com/236x/d8/63/1a/d8631ac82516d49d2e0284c8101704d2.jpg",
+      "musicUrl": "https://www.youtube.com/watch?v=6J1h1i3fjvA",
+      "description": "A theme and the music will make you feel like you're in space, surrounded by stars and planets."
+    }
+  ],
+  "user": [
+    {
+      "_id": 1,
+      "nickname": "David",
+      "email": "david@gmail.com",
+      "password": "password123",
+      "profileImageUrl": "https://i.imgur.com/1Q5ZQ9z.jpg",
+      "createdAt": "2021-06-01T00:00:00Z"
+    },
+    {
+      "_id": 2,
+      "nickname": "John",
+      "email": "john@gmail.com",
+      "password": "password123",
+      "profileImageUrl": "https://i.imgur.com/1Q5ZQ9z.jpg",
+      "createdAt": "2021-06-01T00:00:00Z"
+    },
+    {
+      "_id": 3,
+      "nickname": "Jane",
+      "email": "jane@naver.com",
+      "password": "password123",
+      "profileImageUrl": "https://i.imgur.com/1Q5ZQ9z.jpg",
+      "createdAt": "2021-06-01T00:00:00Z"
+    }
+  ]
+}
