@@ -9,41 +9,94 @@
     background-color: #1aacac;
   }
 }
+
 .main-page img {
   max-width: 25%;
   height: auto;
-  margin-bottom: 30px; /* Space between the image and the content below */
+  margin-bottom: 30px;
   border-radius: 50%;
 }
+
 .button-container {
   display: flex;
   flex-direction: column;
-  gap: 15px; /* Adjust the spacing between buttons */
+  gap: 15px;
   margin-top: 20px;
+  z-index: 99;
 }
 
 .main-page {
-  height: 100vh; /* Ensure the background covers the full viewport height */
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  animation: gradientBackground 15s ease infinite; /* Apply the animation */
-  /* background: url("src/img/haehyup-logo.jpg") no-repeat center center fixed;
-  background-size: cover; */
+  animation: gradientBackground 15s ease infinite;
   font-family: "Noto Sans KR", sans-serif;
 }
+
 h1 {
   text-shadow: 2px 2px 4px #000;
 }
+
 .btn-flat {
   background-color: purple;
   color: white;
-  border-radius: 20px; /* 모서리 둥글게 */
-  transition: transform 0.2s; /* 호버 시 변환 효과를 위해 */
+  border-radius: 20px;
+  transition: transform 0.2s;
 }
 
 .btn-flat:hover {
-  transform: scale(1.05); /* 버튼을 약간 확대 */
-  background-color: #5e17eb; /* 호버 시 색상 변경 */
+  transform: scale(1.05);
+  background-color: #5e17eb;
+}
+.wave {
+  opacity: 0.4;
+  position: absolute;
+  top: 3%;
+  left: 50%;
+  background: #0af;
+  width: 500px;
+  height: 500px;
+  margin-left: -250px;
+  margin-top: -250px;
+  transform-origin: 50% 48%;
+  border-radius: 43%;
+  animation: drift 3000ms infinite linear;
+}
+
+.wave.-three {
+  animation: drift 5000ms infinite linear;
+}
+
+.wave.-two {
+  animation: drift 7000ms infinite linear;
+  opacity: 0.1;
+  background: yellow;
+}
+
+.box:after {
+  content: "";
+  display: block;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(#e8a, 1),
+    rgba(#def, 0) 80%,
+    rgba(white, 0.5)
+  );
+  z-index: 11;
+  transform: translate3d(0, 0, 0);
+}
+
+@keyframes drift {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
