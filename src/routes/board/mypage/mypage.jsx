@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
 import "./mypage.css";
 import MyNavbar from "../../../components/MyNavbar/MyNavbar";
-
 const MyPage = () => {
   // 사용자 정보와 스터디 리스트를 상태로 관리
   const [userInfo, setUserInfo] = useState({

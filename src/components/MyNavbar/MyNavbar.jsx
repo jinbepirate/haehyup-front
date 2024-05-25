@@ -6,6 +6,7 @@ import {
   Navbar,
   Offcanvas,
 } from "react-bootstrap";
+import "../../App.css";
 const EXPAND_BREAKPOINT = "md";
 const BRAND_TITLE = "HaeHyup";
 
@@ -23,8 +24,8 @@ export default function MyNavbar() {
       bg="dark"
       variant="dark"
     >
-      <Container fluid>
-        <Navbar.Brand href="#">
+      <Container fluid style={{ fontFamily: "TTLaundryGothicB" }}>
+        <Navbar.Brand href="/">
           <img src={LogoImg} alt="logo image" height="50" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls={`Navbar-expand-${EXPAND_BREAKPOINT}`} />

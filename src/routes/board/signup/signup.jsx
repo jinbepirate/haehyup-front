@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form, Button, Container, Row, Col, Alert } from "react-bootstrap";
 import MyNavbar from "../../../components/MyNavbar/MyNavbar";
+import "../../../App.css";
 
 export default function Signup() {
   const [formData, setFormData] = useState({
@@ -40,7 +41,7 @@ export default function Signup() {
   return (
     <>
       <MyNavbar />
-      <Container>
+      <Container style={{ fontFamily: "TTLaundryGothicB" }}>
         <Row className="justify-content-md-center mt-5">
           <Col
             md={6}
@@ -54,9 +55,10 @@ export default function Signup() {
             <h1>
               <b>Welcome to HaeHyup</b>
             </h1>
+            <br />
             <p>
-              모각코에 관심이 있는 당신, 어서 빨리 해협과 함께 하세요. 얼마 남지
-              않았어요!
+              모각코에 관심이 있는 당신, 어서 빨리 🌊해협🌊과 함께 하세요.
+              <br /> 얼마 남지 않았어요!
             </p>
             <img
               src="src\img\sign-up.png"
@@ -66,6 +68,8 @@ export default function Signup() {
           </Col>
           <Col md={6}>
             <h1>Signup</h1>
+            <br />
+            <br />
             {error && <Alert variant="danger">{error}</Alert>}
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
               <Form.Group controlId="formBasicUsername">
