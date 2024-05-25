@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
 import "./mypage.css";
-
+import MyNavbar from "../../../components/MyNavbar/MyNavbar";
 const MyPage = () => {
   // 사용자 정보와 스터디 리스트를 상태로 관리
   const [userInfo, setUserInfo] = useState({
@@ -25,39 +25,47 @@ const MyPage = () => {
   }, []);
 
   return (
-    <Container>
-      <h1 className="header">
-        <b>🫡마이페이지</b>
-      </h1>
-      <Row>
-        <Col xs={12} md={8}>
-          <section>
-            <h2>
-              <b>스터디 내역</b>
-            </h2>
-            <ul>
-              {userInfo.studyList.map((study) => (
-                <li key={study.id}>
-                  {study.title} - {study.status}
-                </li>
-              ))}
-            </ul>
-          </section>
-        </Col>
-        <Col xs={12} md={4}>
-          <section>
-            <h2>
-              <b>사용자 정보</b>
-            </h2>
+    <>
+      <MyNavbar />
 
-            <Image className="profile" src="src\img\jinbe.jpeg" roundedCircle />
+      <Container>
+        <h1 className="header">
+          <b>🫡마이페이지</b>
+        </h1>
+        <Row>
+          <Col xs={12} md={8}>
+            <section>
+              <h2>
+                <b>스터디 내역</b>
+              </h2>
+              <ul>
+                {userInfo.studyList.map((study) => (
+                  <li key={study.id}>
+                    {study.title} - {study.status}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          </Col>
+          <Col xs={12} md={4}>
+            <section>
+              <h2>
+                <b>사용자 정보</b>
+              </h2>
 
-            <p>이름: {userInfo.name}</p>
-            <p>이메일: {userInfo.email}</p>
-          </section>
-        </Col>
-      </Row>
-    </Container>
+              <Image
+                className="profile"
+                src="src\img\jinbe.jpeg"
+                roundedCircle
+              />
+
+              <p>이름: {userInfo.name}</p>
+              <p>이메일: {userInfo.email}</p>
+            </section>
+          </Col>
+        </Row>
+      </Container>
+    </>
   );
 };
 

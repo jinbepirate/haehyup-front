@@ -1,7 +1,14 @@
 /* mypage.css */
+@font-face {
+  font-family: "TTLaundryGothicB";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2403-2@1.0/TTLaundryGothicB.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "TTLaundryGothicB", sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f5f5f5;
@@ -23,6 +30,7 @@ body {
   }
 }
 .container {
+  font-family: "TTLaundryGothicB";
   padding: 20px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);

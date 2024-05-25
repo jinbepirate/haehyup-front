@@ -10,6 +10,14 @@
   }
 }
 
+@font-face {
+  font-family: "TTLaundryGothicB";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2403-2@1.0/TTLaundryGothicB.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
 .main-page img {
   max-width: 25%;
   height: auto;
@@ -32,7 +40,7 @@
   justify-content: center;
   align-items: center;
   animation: gradientBackground 15s ease infinite;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "TTLaundryGothicB", sans-serif;
 }
 
 .btn-flat {
