@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Form, Button, Container, Row, Col, Alert } from "react-bootstrap";
+import MyNavbar from "../../../components/MyNavbar/MyNavbar";
 
 export default function Signin() {
   const [formData, setFormData] = useState({
@@ -35,46 +36,49 @@ export default function Signin() {
   };
 
   return (
-    <Container>
-      <Row className="justify-content-md-center mt-5">
-        <Col md={6}>
-          <h1>Sign In</h1>
-          {error && <Alert variant="danger">{error}</Alert>}
-          <Form noValidate validated={validated} onSubmit={handleSubmit}>
-            <Form.Group controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control
-                required
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-              />
-              <Form.Control.Feedback type="invalid">
-                Please provide a valid email.
-              </Form.Control.Feedback>
-            </Form.Group>
+    <>
+      <MyNavbar />
+      <Container>
+        <Row className="justify-content-md-center mt-5">
+          <Col md={6}>
+            <h1>Sign In</h1>
+            {error && <Alert variant="danger">{error}</Alert>}
+            <Form noValidate validated={validated} onSubmit={handleSubmit}>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label>Email address</Form.Label>
+                <Form.Control
+                  required
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please provide a valid email.
+                </Form.Control.Feedback>
+              </Form.Group>
 
-            <Form.Group controlId="formBasicPassword" className="mt-3">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                required
-                type="password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-              />
-              <Form.Control.Feedback type="invalid">
-                Please provide a password.
-              </Form.Control.Feedback>
-            </Form.Group>
+              <Form.Group controlId="formBasicPassword" className="mt-3">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  required
+                  type="password"
+                  name="password"
+                  value={formData.password}
+                  onChange={handleChange}
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please provide a password.
+                </Form.Control.Feedback>
+              </Form.Group>
 
-            <Button variant="primary" type="submit" className="mt-4">
-              Sign In
-            </Button>
-          </Form>
-        </Col>
-      </Row>
-    </Container>
+              <Button variant="primary" type="submit" className="mt-4">
+                Sign In
+              </Button>
+            </Form>
+          </Col>
+        </Row>
+      </Container>
+    </>
   );
 }

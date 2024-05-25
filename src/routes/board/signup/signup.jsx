@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Form, Button, Container, Row, Col, Alert } from "react-bootstrap";
+import MyNavbar from "../../../components/MyNavbar/MyNavbar";
 
 export default function Signup() {
   const [formData, setFormData] = useState({
@@ -37,74 +38,99 @@ export default function Signup() {
   };
 
   return (
-    <Container>
-      <Row className="justify-content-md-center mt-5">
-        <Col md={6}>
-          <h1>Signup</h1>
-          {error && <Alert variant="danger">{error}</Alert>}
-          <Form noValidate validated={validated} onSubmit={handleSubmit}>
-            <Form.Group controlId="formBasicUsername">
-              <Form.Label>Username</Form.Label>
-              <Form.Control
-                required
-                type="text"
-                name="username"
-                value={formData.username}
-                onChange={handleChange}
-              />
-              <Form.Control.Feedback type="invalid">
-                Please provide a username.
-              </Form.Control.Feedback>
-            </Form.Group>
+    <>
+      <MyNavbar />
+      <Container>
+        <Row className="justify-content-md-center mt-5">
+          <Col
+            md={6}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              textAlign: "center",
+              justifyContent: "space-evenly",
+            }}
+          >
+            <h1>
+              <b>Welcome to HaeHyup</b>
+            </h1>
+            <p>
+              모각코에 관심이 있는 당신, 어서 빨리 해협과 함께 하세요. 얼마 남지
+              않았어요!
+            </p>
+            <img
+              src="src\img\sign-up.png"
+              alt="Signup illustration"
+              className="img-fluid mt-3"
+            />
+          </Col>
+          <Col md={6}>
+            <h1>Signup</h1>
+            {error && <Alert variant="danger">{error}</Alert>}
+            <Form noValidate validated={validated} onSubmit={handleSubmit}>
+              <Form.Group controlId="formBasicUsername">
+                <Form.Label>Username</Form.Label>
+                <Form.Control
+                  required
+                  type="text"
+                  name="username"
+                  value={formData.username}
+                  onChange={handleChange}
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please provide a username.
+                </Form.Control.Feedback>
+              </Form.Group>
 
-            <Form.Group controlId="formBasicEmail" className="mt-3">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control
-                required
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-              />
-              <Form.Control.Feedback type="invalid">
-                Please provide a valid email.
-              </Form.Control.Feedback>
-            </Form.Group>
+              <Form.Group controlId="formBasicEmail" className="mt-3">
+                <Form.Label>Email address</Form.Label>
+                <Form.Control
+                  required
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please provide a valid email.
+                </Form.Control.Feedback>
+              </Form.Group>
 
-            <Form.Group controlId="formBasicPassword" className="mt-3">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                required
-                type="password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-              />
-              <Form.Control.Feedback type="invalid">
-                Please provide a password.
-              </Form.Control.Feedback>
-            </Form.Group>
+              <Form.Group controlId="formBasicPassword" className="mt-3">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  required
+                  type="password"
+                  name="password"
+                  value={formData.password}
+                  onChange={handleChange}
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please provide a password.
+                </Form.Control.Feedback>
+              </Form.Group>
 
-            <Form.Group controlId="formConfirmPassword" className="mt-3">
-              <Form.Label>Confirm Password</Form.Label>
-              <Form.Control
-                required
-                type="password"
-                name="confirmPassword"
-                value={formData.confirmPassword}
-                onChange={handleChange}
-              />
-              <Form.Control.Feedback type="invalid">
-                Please confirm your password.
-              </Form.Control.Feedback>
-            </Form.Group>
+              <Form.Group controlId="formConfirmPassword" className="mt-3">
+                <Form.Label>Confirm Password</Form.Label>
+                <Form.Control
+                  required
+                  type="password"
+                  name="confirmPassword"
+                  value={formData.confirmPassword}
+                  onChange={handleChange}
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please confirm your password.
+                </Form.Control.Feedback>
+              </Form.Group>
 
-            <Button variant="primary" type="submit" className="mt-4">
-              Signup
-            </Button>
-          </Form>
-        </Col>
-      </Row>
-    </Container>
+              <Button variant="primary" type="submit" className="mt-4">
+                Signup
+              </Button>
+            </Form>
+          </Col>
+        </Row>
+      </Container>
+    </>
   );
 }

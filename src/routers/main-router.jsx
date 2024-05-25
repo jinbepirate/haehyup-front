@@ -27,10 +27,10 @@ const router = createBrowserRouter([
     element: <Signin />,
   },
   {
-
-    path: "mypage",
+    path: "/mypage",
     element: <MyPage />,
-
+  },
+  {
     path: "/home",
     element: <HomeLayout />,
     children: [
@@ -38,9 +38,8 @@ const router = createBrowserRouter([
         path: "",
         element: <HomePage />,
         index: true,
-      }
-    ]
-
+      },
+    ],
   },
 ]);
 export default router;
