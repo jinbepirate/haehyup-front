@@ -35,10 +35,6 @@
   font-family: "Noto Sans KR", sans-serif;
 }
 
-h1 {
-  text-shadow: 2px 2px 4px #000;
-}
-
 .btn-flat {
   background-color: purple;
   color: white;

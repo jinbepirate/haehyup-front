@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import MainPage from "~/routes/page";
 import Signup from "~/routes/board/signup/signup";
 import Signin from "../routes/board/signin/signin";
+import MyPage from "../routes/board/mypage/mypage";
 import HomePage from "../routes/home/page";
 import HomeLayout from "../routes/home/top-layout";
 
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
     element: <Signin />,
   },
   {
+
+    path: "mypage",
+    element: <MyPage />,
+
     path: "/home",
     element: <HomeLayout />,
     children: [
@@ -35,6 +40,7 @@ const router = createBrowserRouter([
         index: true,
       }
     ]
+
   },
 ]);
 export default router;
