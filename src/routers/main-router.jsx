@@ -6,6 +6,7 @@ import Signin from "../routes/board/signin/signin";
 import MyPage from "../routes/board/mypage/mypage";
 import HomePage from "../routes/home/page";
 import HomeLayout from "../routes/home/top-layout";
+import Memo from "../routes/board/memo/memo";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
   {
     path: "/mypage",
     element: <MyPage />,
+  },
+  {
+    path: "/memo",
+    element: <Memo />,
   },
   {
     path: "/home",

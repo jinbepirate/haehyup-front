@@ -58,6 +58,7 @@ export default function MyNavbar() {
             </Nav>
             <Nav className="justify-content-start flex-grow-1 pe-3">
               <Nav.Link href="/home">Home</Nav.Link>
+              <Nav.Link href="/memo">Memo</Nav.Link>
             </Nav>
           </Offcanvas.Body>
         </Navbar.Offcanvas>
