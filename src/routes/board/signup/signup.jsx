@@ -52,8 +52,8 @@ export default function Signup() {
               justifyContent: "space-evenly",
             }}
           >
-            <h1>
-              <b>Welcome to HaeHyup</b>
+            <h1 style={{ fontSize: "60px" }}>
+              <b>Welcome to HaeHyup !</b>
             </h1>
             <br />
             <p>
