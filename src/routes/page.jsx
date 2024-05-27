@@ -1,10 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import { CSSTransition } from "react-transition-group";
 import "./MainPage.css";
 
 export default function MainPage() {
+  //API 를 사용해서 변경할 수도 있음.
+  const quotes = [
+    "“탁월함은 기술이 아니다. 태도입니다.” – 랄프 마스턴.",
+    "“성공은 종종 열정의 결과입니다.” – 앨버트 슈바이처.",
+    "“행복은 목적지가 아니라 여정입니다.” – 아리스토텔레스.",
+    "“무엇을 하든지 최선을 다하라.” – 콘푸시우스.",
+    "“실패는 성공으로 가는 지름길이다.” – 코코 샤넬.",
+    "“5월 24일은 경서의 생일이다.”",
+  ];
+
+  const [currentQuote, setCurrentQuote] = useState(quotes[0]);
+
+  const changeQuote = () => {
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    setCurrentQuote(quotes[randomIndex]);
+  };
+
   return (
     <CSSTransition in={true} appear={true} timeout={800} classNames="fade">
       <div className="box">
@@ -30,12 +47,19 @@ export default function MainPage() {
               .btn-xxl {
                 padding: 1rem 1.5rem;
                 font-size: 1.5rem;
+              },
+              .clickable-text {
+                cursor: pointer;
+                text-decoration: underline;
+                /* Add additional styling here if needed */
               }
             `}
           </style>
           <br></br>
           <p>
-            <b> “탁월함은 기술이 아니다. 태도입니다.” – 랄프 마스턴.</b>
+            <b style={{ cursor: "pointer" }} onClick={changeQuote}>
+              {currentQuote}
+            </b>
           </p>
           <br></br>
           <div className="button-container">
