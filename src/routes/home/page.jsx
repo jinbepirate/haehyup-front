@@ -1,14 +1,18 @@
 import ThemeComponent from "../../components/Home/theme/Theme";
 import ProfileComponent from "../../components/Home/profile/Profile";
+import { Col, Container, Row } from "react-bootstrap";
 // import { Display } from "react-bootstrap-icons";
+import "./style.css";
 
 export default function HomePage() {
 
   return (
-    <div  >
-      {/* 이 두개 가로로 놓게 스타일 속성 어떻게 적용하지?? style={{display:'flex', flex-direction:'row'}} 적용하고 싶은데 안됨; */}
-      <ThemeComponent />
-      <ProfileComponent />
-    </div>
+    <Container fluid className="full-height-container"> 
+      <Row className="full-height-row">
+        <Col xs={10} className="full-height-col"><ThemeComponent /></Col>
+        <Col xs={2}></Col>
+      </Row>
+      <div className="overlay"><ProfileComponent /></div>
+    </Container>
   )
 }
