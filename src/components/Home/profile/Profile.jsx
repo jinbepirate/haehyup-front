@@ -6,9 +6,10 @@ import {
   MDBCardImage,
   MDBBtn,
   MDBTypography,
-  MDBIcon,
+  MDBBadge,
 } from "mdb-react-ui-kit";
 import { getUserById } from "~/lib/apis/user/userInfo";
+import "./Profile.css";
 
 export default function ProfileComponent() {
   // profile 정보를 가져와서 상태로 관리
@@ -23,7 +24,7 @@ export default function ProfileComponent() {
     // });
   }, []);
   return (
-    <MDBCard >
+    <MDBCard className="profile-card">
       <MDBCardBody className="text-center">
         <div className="mt-3 mb-4">
           <MDBCardImage
@@ -33,22 +34,17 @@ export default function ProfileComponent() {
             style={{ width: "100px" }}
           />
         </div>
-        <MDBTypography tag="h4">{profile.nickname}</MDBTypography>
-        <MDBCardText className="text-muted mb-4">
-          {profile.email}
-        </MDBCardText>
 
-        <div className="mb-4 pb-2">
-          <MDBBtn outline floating>
-            <MDBIcon fab icon="facebook" size="lg" />
-          </MDBBtn>
-          <MDBBtn outline floating className="mx-1">
-            <MDBIcon fab icon="twitter" size="lg" />
-          </MDBBtn>
-          <MDBBtn outline floating>
-            <MDBIcon fab icon="skype" size="lg" />
-          </MDBBtn>
-        </div>
+        <MDBBadge className="profile-badge" pill>
+          <MDBCardImage
+            src={""}
+            className="rounded-circle"
+            fluid
+            style={{ width: "100px" }}
+          />
+        </MDBBadge>
+        <MDBTypography tag="h4">{profile.nickname}</MDBTypography>
+        <MDBCardText className="text-muted mb-4">{profile.email}</MDBCardText>
 
         <MDBBtn href="/mypage" rounded size="lg">
           MY PAGE
