@@ -37,7 +37,7 @@ export default function ProfileComponent() {
 
         <MDBBadge className="profile-badge" pill>
           <MDBCardImage
-            src={""}
+            src={"src/img/badge/goodjob.jpeg"}
             className="rounded-circle"
             fluid
             style={{ width: "100px" }}
