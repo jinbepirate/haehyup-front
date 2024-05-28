@@ -1,10 +1,5 @@
 import { useEffect, useState } from "react";
 import { getThemeList } from "../../../lib/apis/studyRoom/theme";
-// import 'swiper/css';
-// import 'swiper/css/navigation';
-// import 'swiper/css/pagination';
-// import 'swiper/css/scrollbar';
-// import { Virtual } from 'swiper/modules';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Pagination } from "swiper/modules";
 import "./Theme.css";
@@ -13,15 +8,11 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 
 export default function ThemeComponent() {
-  // theme 정보를 가져와서 상태로 관리
   const [themeList, setThemeList] = useState([]);
   const [backgroundImage, setBackgroundImage] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // useEffect를 이용해서 theme 정보를 가져오는 함수
-
   useEffect(() => {
-    // theme 정보 가져오기
     const v = getThemeList();
     setThemeList(v);
     if (v.length > 0) {
@@ -37,8 +28,16 @@ export default function ThemeComponent() {
     }
   }, [activeIndex]);
 
+  const backgroundStyle = {
+    backgroundImage: `url(${backgroundImage})`,
+    borderRadius: "10px",
+    padding: "20px",
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+    margin: "20px",
+  };
+
   return (
-    <div style={{ backgroundImage: `url(${backgroundImage})` }}>
+    <div className="background" style={backgroundStyle}>
       <Swiper
         effect={"coverflow"}
         grabCursor={true}
@@ -62,14 +61,19 @@ export default function ThemeComponent() {
               style={{ maxWidth: "500px", overflow: "hidden" }}
               key={theme._id}
             >
-              {/* <img src={theme.imageUrl} alt={theme.themeName} /> */}
-              <div>
+              <div className="card">
                 <img
                   src={theme.imageUrl}
                   alt={theme.themeName}
-                  style={{ objectFit: "cover" }}
+                  className="card-image"
                 />
-                <p style={{ display: "absolute" }}>{theme.themeName}</p>
+                <div className="card-content">
+                  <p className="card-name">
+                    <b>{theme.themeName}</b>
+                  </p>
+                  <p className="card-description">{theme.description}</p>
+                  <button className="card-button">Learn More</button>
+                </div>
               </div>
             </SwiperSlide>
           );
