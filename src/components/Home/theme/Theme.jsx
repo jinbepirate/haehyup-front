@@ -4,7 +4,7 @@ import { getThemeList } from '../../../lib/apis/studyRoom/theme';
 // import 'swiper/css/navigation';
 // import 'swiper/css/pagination';
 // import 'swiper/css/scrollbar';
-import { Virtual } from 'swiper/modules';
+// import { Virtual } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Pagination } from 'swiper/modules';
 import "./Theme.css"
@@ -46,10 +46,10 @@ export default function ThemeComponent() {
       {
         themeList.map((theme) => {
           return (
-            <SwiperSlide style={{maxWidth:"500px"}} key={theme._id}>
+            <SwiperSlide style={{maxWidth:"500px", overflow:'hidden'}} key={theme._id}>
               {/* <img src={theme.imageUrl} alt={theme.themeName} /> */}
               <div >
-                <img src={theme.imageUrl} alt={theme.themeName} />
+                <img src={theme.imageUrl} alt={theme.themeName} style={{objectFit:'cover'}}/>
               </div>
             </SwiperSlide>
           )
