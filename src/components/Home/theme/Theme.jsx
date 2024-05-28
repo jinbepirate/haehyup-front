@@ -15,7 +15,7 @@ export default function ThemeComponent(props) {
   useEffect(() => {
     const v = getThemeList();
     setThemeList(v);
-    if (v.length > 0) {
+    if (v.length >= 0) {
       setBackgroundImage(v[0].imageUrl);
     }
   }, []);
@@ -27,7 +27,6 @@ export default function ThemeComponent(props) {
       // setBackgroundImage(url);
       props.setBackgroundImage(url);
     }
-    
   }, [activeIndex]);
 
   const backgroundStyle = {
