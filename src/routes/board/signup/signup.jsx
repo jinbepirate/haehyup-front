@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Form, Button, Container, Row, Col, Alert } from "react-bootstrap";
 import MyNavbar from "../../../components/MyNavbar/MyNavbar";
 import "../../../App.css";
@@ -21,7 +21,7 @@ export default function Signup() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setValidated(true);
 
@@ -30,12 +30,40 @@ export default function Signup() {
       return;
     }
 
-    // 추가적인 회원가입 로직을 여기에 작성합니다.
-    // 예: 서버로 폼 데이터를 전송
+    console.log(formData.username, formData.password);
 
-    // 성공적으로 회원가입이 완료되면, 오류 메시지를 초기화
-    setError("");
-    alert("Signup successful!");
+    try {
+      const response = await fetch("https://172.16.1.84:4000/users/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          uid: formData.username,
+          password: formData.password,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Signup failed");
+      }
+
+      const result = await response.json();
+
+      // 성공적으로 회원가입이 완료되면, 오류 메시지를 초기화
+      setError("");
+      alert("Signup successful!");
+
+      // 폼 데이터 초기화
+      setFormData({
+        username: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+      });
+    } catch (error) {
+      setError(error.message || "An error occurred during signup");
+    }
   };
 
   return (
@@ -61,7 +89,7 @@ export default function Signup() {
               <br /> 얼마 남지 않았어요!
             </p>
             <img
-              src="src\img\sign-up.png"
+              src="src/img/sign-up.png"
               alt="Signup illustration"
               className="img-fluid mt-3"
             />

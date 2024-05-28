@@ -4,7 +4,7 @@ import { user } from "../dummy.json";
 /**
  * 프로필 위한 유저 조회
  * @returns {Promise}
- * { data: { user: [{ _id, email, password, name, profileImageUrl, createdAt, updatedAt }] } 
+ * { data: { user: [{ _id, email, password, name, profileImageUrl, createdAt, updatedAt }] }
  * @throws {Error}
  * @example
  * import { getUser } from "./apis/user/userInfo";
@@ -12,7 +12,13 @@ import { user } from "../dummy.json";
  */
 export const getUserById = (userId) => {
   return user.find((user) => user._id === userId);
-}
+};
+
+// {
+// uid : 임찬솔
+// password : 1234
+// }
+
 // export const getUserById = async (userId) => {
 //   const resp = axios.get(`/api/user/${userId}`);
 //   return (await resp).data;
