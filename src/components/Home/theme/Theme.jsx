@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 
-export default function ThemeComponent() {
+export default function ThemeComponent(props) {
   const [themeList, setThemeList] = useState([]);
   const [backgroundImage, setBackgroundImage] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
@@ -23,13 +23,15 @@ export default function ThemeComponent() {
   useEffect(() => {
     if (themeList.length > 0) {
       const url = themeList[activeIndex].imageUrl;
-      console.log(url);
-      setBackgroundImage(url);
+      // console.log(url);
+      // setBackgroundImage(url);
+      props.setBackgroundImage(url);
     }
+    
   }, [activeIndex]);
 
   const backgroundStyle = {
-    backgroundImage: `url(${backgroundImage})`,
+    // backgroundImage: `url(${backgroundImage})`,
     borderRadius: "10px",
     padding: "20px",
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",

@@ -19,7 +19,7 @@ export default function MyNavbar() {
   return (
     <Navbar
       expand={EXPAND_BREAKPOINT}
-      className="mb-3"
+      // className="mb-3"
       sticky="top"
       bg="dark"
       variant="dark"
