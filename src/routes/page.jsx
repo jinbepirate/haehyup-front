@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import { CSSTransition } from "react-transition-group";
@@ -17,10 +17,14 @@ export default function MainPage() {
 
   const [currentQuote, setCurrentQuote] = useState(quotes[0]);
 
-  const changeQuote = () => {
-    const randomIndex = Math.floor(Math.random() * quotes.length);
-    setCurrentQuote(quotes[randomIndex]);
-  };
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      setCurrentQuote(quotes[randomIndex]);
+    }, 5000); // 5000ms = 5초 간격으로 명언 변경
+
+    return () => clearInterval(intervalId); // 컴포넌트 언마운트 시 타이머 해제
+  }, []);
 
   return (
     <CSSTransition in={true} appear={true} timeout={800} classNames="fade">
@@ -57,9 +61,7 @@ export default function MainPage() {
           </style>
           <br></br>
           <p>
-            <b style={{ cursor: "pointer" }} onClick={changeQuote}>
-              {currentQuote}
-            </b>
+            <b>{currentQuote}</b>
           </p>
           <br></br>
           <div className="button-container">
