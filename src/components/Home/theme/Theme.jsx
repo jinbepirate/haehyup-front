@@ -29,6 +29,18 @@ export default function ThemeComponent(props) {
     }
   }, [activeIndex]);
 
+
+  const backgroundStyle = {
+    backgroundImage: `url(${backgroundImage})`,
+    borderRadius: "10px",
+    padding: "20px",
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+    margin: "20px",
+  };
+  const handleLearnMoreClick = () => {
+    window.location.href = `https://192.168.219.101:4000/${activeIndex}`;
+  };
+
   return (
     <div className="background">
       <Swiper
@@ -65,7 +77,12 @@ export default function ThemeComponent(props) {
                     <b>{theme.themeName}</b>
                   </p>
                   <p className="card-description">{theme.description}</p>
-                  <button className="card-button">Learn More</button>
+                  <button
+                    className="card-button"
+                    onClick={handleLearnMoreClick}
+                  >
+                    Learn More
+                  </button>
                 </div>
               </div>
             </SwiperSlide>
