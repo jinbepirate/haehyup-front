@@ -61,18 +61,12 @@ export default function MainPage() {
           </style>
           <br></br>
           <p>
-            <b>{currentQuote}</b>
+            <b style={{ color: "whitesmoke" }}>{currentQuote}</b>
           </p>
           <br></br>
           <div className="button-container">
-            <Button as={Link} to="/home" variant="flat" size="xxl">
-              Let's Study🌊
-            </Button>
-            <Button as={Link} to="/signin" variant="flat" size="xl">
-              Login
-            </Button>
-            <Button as={Link} to="/signup" variant="flat" size="xl">
-              Sign Up
+            <Button as={Link} to="/signin" variant="flat" size="xxl">
+              해협 시작하기
             </Button>
           </div>
           <div className="wave"></div>

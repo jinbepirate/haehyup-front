@@ -23,6 +23,7 @@ export default function ProfileComponent() {
     //   setProfile(response);
     // });
   }, []);
+  console.log(profile);
   return (
     <MDBCard className="profile-card">
       <MDBCardBody className="text-center">
