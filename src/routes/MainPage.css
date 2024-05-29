@@ -1,15 +1,19 @@
 @keyframes gradientBackground {
   0% {
-    background-color: #1e3c72;
+    background: linear-gradient(0deg, #1e3c72, #2a5298);
   }
   33% {
-    background-color: #2a5298;
+    background: linear-gradient(0deg, #2a5298, #3984b6);
   }
   66% {
-    background-color: #3984b6;
+    background: linear-gradient(0deg, #3984b6, #1e3c72);
   }
   100% {
-    background-color: #1e3c72; /* Back to the initial color for a smooth loop */
+    background: linear-gradient(
+      0deg,
+      #1e3c72,
+      #2a5298
+    ); /* Back to the initial color for a smooth loop */
   }
 }
 

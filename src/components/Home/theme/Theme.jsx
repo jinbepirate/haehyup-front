@@ -29,16 +29,8 @@ export default function ThemeComponent(props) {
     }
   }, [activeIndex]);
 
-  const backgroundStyle = {
-    // backgroundImage: `url(${backgroundImage})`,
-    borderRadius: "10px",
-    padding: "20px",
-    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-    margin: "20px",
-  };
-
   return (
-    <div className="background" style={backgroundStyle}>
+    <div className="background">
       <Swiper
         effect={"coverflow"}
         grabCursor={true}
