@@ -35,7 +35,9 @@ export default function ThemeComponent() {
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
     margin: "20px",
   };
-
+  const handleLearnMoreClick = () => {
+    window.location.href = `https://192.168.219.101:4000/${activeIndex}`;
+  };
   return (
     <div className="background" style={backgroundStyle}>
       <Swiper
@@ -72,7 +74,12 @@ export default function ThemeComponent() {
                     <b>{theme.themeName}</b>
                   </p>
                   <p className="card-description">{theme.description}</p>
-                  <button className="card-button">Learn More</button>
+                  <button
+                    className="card-button"
+                    onClick={handleLearnMoreClick}
+                  >
+                    Learn More
+                  </button>
                 </div>
               </div>
             </SwiperSlide>
