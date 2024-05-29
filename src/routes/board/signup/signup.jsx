@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Form, Button, Container, Row, Col, Alert } from "react-bootstrap";
-import MyNavbar from "../../../components/MyNavbar/MyNavbar";
 import "../../../App.css";
 
 export default function Signup() {
@@ -68,7 +67,6 @@ export default function Signup() {
 
   return (
     <>
-      <MyNavbar />
       <Container style={{ fontFamily: "TTLaundryGothicB" }}>
         <Row className="justify-content-md-center mt-5">
           <Col

@@ -18,7 +18,7 @@ body {
   animation: gradientBackground 10s infinite;
 }
 
-@keyframes gradientBackground {
+/* @keyframes gradientBackground {
   0% {
     background-color: #09425d;
   }
@@ -28,7 +28,7 @@ body {
   100% {
     background-color: #1aacac;
   }
-}
+} */
 .container {
   font-family: "TTLaundryGothicB";
   padding: 20px;
@@ -48,7 +48,7 @@ section {
 }
 
 h2 {
-  color: #555;
+  color: whitesmoke;
   border-bottom: 2px solid #ddd;
   padding-bottom: 20px;
   margin-bottom: 20px;

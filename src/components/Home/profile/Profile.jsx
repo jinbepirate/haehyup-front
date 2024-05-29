@@ -23,6 +23,7 @@ export default function ProfileComponent() {
     //   setProfile(response);
     // });
   }, []);
+  console.log(profile);
   return (
     <MDBCard className="profile-card">
       <MDBCardBody className="text-center">
@@ -46,7 +47,7 @@ export default function ProfileComponent() {
         <MDBTypography tag="h4">{profile.nickname}</MDBTypography>
         <MDBCardText className="text-muted mb-4">{profile.email}</MDBCardText>
 
-        <MDBBtn href="/mypage" rounded size="lg">
+        <MDBBtn noRipple="true" href="/mypage" rounded size="lg">
           MY PAGE
         </MDBBtn>
       </MDBCardBody>
