@@ -48,7 +48,7 @@ export default function Signup() {
       }
 
       const result = await response.json();
-
+      console.log(result);
       // 성공적으로 회원가입이 완료되면, 오류 메시지를 초기화
       setError("");
       alert("Signup successful!");

@@ -85,7 +85,7 @@ export default function Signin() {
 
               <div className="d-grid gap-2 mt-4">
                 <Button variant="primary" type="submit">
-                  Sign In
+                  Log In
                 </Button>
                 <Button as={Link} to="/signup" variant="secondary">
                   Sign Up

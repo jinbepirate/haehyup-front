@@ -40,22 +40,6 @@ export default function MyNavbar() {
             </Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body className="flex-row-reverse">
-            <Nav
-              className={`justify-content-around flex-row pb-4 pb-${EXPAND_BREAKPOINT}-0`}
-            >
-              <Nav.Link
-                className="flex-grow-1 text-center border border-dark border-end-0"
-                href="/signin"
-              >
-                로그인
-              </Nav.Link>
-              <Nav.Link
-                className="flex-grow-1 text-center border border-dark"
-                href="/signup"
-              >
-                회원가입
-              </Nav.Link>
-            </Nav>
             <Nav className="justify-content-start flex-grow-1 pe-3">
               <Nav.Link href="/home">Home</Nav.Link>
               <Nav.Link href="/memo">Memo</Nav.Link>

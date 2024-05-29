@@ -36,14 +36,6 @@ export default function ProfileComponent() {
           />
         </div>
 
-        <MDBBadge className="profile-badge" pill>
-          <MDBCardImage
-            src={"src/img/badge/goodjob.jpeg"}
-            className="rounded-circle"
-            fluid
-            style={{ width: "100px" }}
-          />
-        </MDBBadge>
         <MDBTypography tag="h4">{profile.nickname}</MDBTypography>
         <MDBCardText className="text-muted mb-4">{profile.email}</MDBCardText>
 
