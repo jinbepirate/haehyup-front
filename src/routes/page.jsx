@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import { CSSTransition } from "react-transition-group";
 import "./MainPage.css";
+import sampleAudio from "../bgm/rain.mp3";
 
 export default function MainPage() {
   //API 를 사용해서 변경할 수도 있음.
@@ -16,7 +17,8 @@ export default function MainPage() {
   ];
 
   const [currentQuote, setCurrentQuote] = useState(quotes[0]);
-
+  const audioRef = useRef(null);
+  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
   useEffect(() => {
     const intervalId = setInterval(() => {
       const randomIndex = Math.floor(Math.random() * quotes.length);
@@ -25,6 +27,13 @@ export default function MainPage() {
 
     return () => clearInterval(intervalId); // 컴포넌트 언마운트 시 타이머 해제
   }, []);
+
+  const handleAudioPlay = () => {
+    if (audioRef.current) {
+      audioRef.current.play();
+      setIsAudioPlaying(true);
+    }
+  };
 
   return (
     <CSSTransition in={true} appear={true} timeout={800} classNames="fade">
@@ -68,10 +77,16 @@ export default function MainPage() {
             <Button as={Link} to="/signin" variant="flat" size="xxl">
               해협 시작하기
             </Button>
+            {!isAudioPlaying && (
+              <Button variant="flat" size="xxl" onClick={handleAudioPlay}>
+                음악 재생
+              </Button>
+            )}
           </div>
           <div className="wave"></div>
           <div className="wave -three"></div>
           <div className="wave -two"></div>
+          <audio ref={audioRef} src={sampleAudio} loop />
         </div>
       </div>
     </CSSTransition>
