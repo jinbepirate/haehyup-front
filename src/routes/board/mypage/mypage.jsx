@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
 import { Bar, Line } from "react-chartjs-2";
 import {
@@ -106,7 +106,6 @@ const MyPage = () => {
   return (
     <>
       <MyNavbar />
-
       <Container>
         <h1 className="header">
           <b>🫡마이페이지</b>

@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import { CSSTransition } from "react-transition-group";
 import "./MainPage.css";
+import sampleAudio from "../bgm/rain.mp3";
 
 export default function MainPage() {
   //API 를 사용해서 변경할 수도 있음.
@@ -16,10 +17,22 @@ export default function MainPage() {
   ];
 
   const [currentQuote, setCurrentQuote] = useState(quotes[0]);
+  const audioRef = useRef(null);
+  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      setCurrentQuote(quotes[randomIndex]);
+    }, 5000); // 5000ms = 5초 간격으로 명언 변경
 
-  const changeQuote = () => {
-    const randomIndex = Math.floor(Math.random() * quotes.length);
-    setCurrentQuote(quotes[randomIndex]);
+    return () => clearInterval(intervalId); // 컴포넌트 언마운트 시 타이머 해제
+  }, []);
+
+  const handleAudioPlay = () => {
+    if (audioRef.current) {
+      audioRef.current.play();
+      setIsAudioPlaying(true);
+    }
   };
 
   return (
@@ -57,25 +70,23 @@ export default function MainPage() {
           </style>
           <br></br>
           <p>
-            <b style={{ cursor: "pointer" }} onClick={changeQuote}>
-              {currentQuote}
-            </b>
+            <b style={{ color: "whitesmoke" }}>{currentQuote}</b>
           </p>
           <br></br>
           <div className="button-container">
-            <Button as={Link} to="/home" variant="flat" size="xxl">
-              Let's Study🌊
+            <Button as={Link} to="/signin" variant="flat" size="xxl">
+              해협 시작하기
             </Button>
-            <Button as={Link} to="/signin" variant="flat" size="xl">
-              Login
-            </Button>
-            <Button as={Link} to="/signup" variant="flat" size="xl">
-              Sign Up
-            </Button>
+            {!isAudioPlaying && (
+              <Button variant="flat" size="xxl" onClick={handleAudioPlay}>
+                음악 재생
+              </Button>
+            )}
           </div>
           <div className="wave"></div>
           <div className="wave -three"></div>
           <div className="wave -two"></div>
+          <audio ref={audioRef} src={sampleAudio} loop />
         </div>
       </div>
     </CSSTransition>

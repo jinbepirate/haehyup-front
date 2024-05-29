@@ -1,12 +1,19 @@
 @keyframes gradientBackground {
   0% {
-    background-color: #09425d;
+    background: linear-gradient(0deg, #1e3c72, #2a5298);
   }
-  50% {
-    background-color: #21dbdb;
+  33% {
+    background: linear-gradient(0deg, #2a5298, #3984b6);
+  }
+  66% {
+    background: linear-gradient(0deg, #3984b6, #1e3c72);
   }
   100% {
-    background-color: #1aacac;
+    background: linear-gradient(
+      0deg,
+      #1e3c72,
+      #2a5298
+    ); /* Back to the initial color for a smooth loop */
   }
 }
 
@@ -16,6 +23,15 @@
     format("woff2");
   font-weight: 700;
   font-style: normal;
+}
+
+h1 b {
+  font-size: 48px; /* 적절한 크기로 조정 */
+  font-weight: bold; /* 두꺼운 글꼴 */
+  color: #333; /* 어두운 색상 */
+  text-align: center; /* 중앙 정렬 */
+  margin-top: 20px; /* 상단 여백 */
+  margin-bottom: 20px; /* 하단 여백 */
 }
 
 .main-page img {
@@ -39,7 +55,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  animation: gradientBackground 15s ease infinite;
+  animation: gradientBackground 30s ease infinite;
   font-family: "TTLaundryGothicB", sans-serif;
 }
 
@@ -77,23 +93,6 @@
   animation: drift 7000ms infinite linear;
   opacity: 0.1;
   background: yellow;
-}
-
-.box:after {
-  content: "";
-  display: block;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    to bottom,
-    rgba(#e8a, 1),
-    rgba(#def, 0) 80%,
-    rgba(white, 0.5)
-  );
-  z-index: 11;
-  transform: translate3d(0, 0, 0);
 }
 
 @keyframes drift {

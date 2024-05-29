@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 
-export default function ThemeComponent() {
+export default function ThemeComponent(props) {
   const [themeList, setThemeList] = useState([]);
   const [backgroundImage, setBackgroundImage] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
@@ -15,7 +15,7 @@ export default function ThemeComponent() {
   useEffect(() => {
     const v = getThemeList();
     setThemeList(v);
-    if (v.length > 0) {
+    if (v.length >= 0) {
       setBackgroundImage(v[0].imageUrl);
     }
   }, []);
@@ -23,10 +23,12 @@ export default function ThemeComponent() {
   useEffect(() => {
     if (themeList.length > 0) {
       const url = themeList[activeIndex].imageUrl;
-      console.log(url);
-      setBackgroundImage(url);
+      // console.log(url);
+      // setBackgroundImage(url);
+      props.setBackgroundImage(url);
     }
   }, [activeIndex]);
+
 
   const backgroundStyle = {
     backgroundImage: `url(${backgroundImage})`,
@@ -38,8 +40,9 @@ export default function ThemeComponent() {
   const handleLearnMoreClick = () => {
     window.location.href = `https://192.168.219.101:4000/${activeIndex}`;
   };
+
   return (
-    <div className="background" style={backgroundStyle}>
+    <div className="background">
       <Swiper
         effect={"coverflow"}
         grabCursor={true}
