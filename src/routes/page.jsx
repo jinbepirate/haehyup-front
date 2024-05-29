@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import { CSSTransition } from "react-transition-group";
+import { FaPlay, FaPause } from "react-icons/fa";
 import "./MainPage.css";
 import sampleAudio from "../bgm/rain.mp3";
 
@@ -28,10 +29,14 @@ export default function MainPage() {
     return () => clearInterval(intervalId); // 컴포넌트 언마운트 시 타이머 해제
   }, []);
 
-  const handleAudioPlay = () => {
+  const handleAudioToggle = () => {
     if (audioRef.current) {
-      audioRef.current.play();
-      setIsAudioPlaying(true);
+      if (isAudioPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play();
+      }
+      setIsAudioPlaying(!isAudioPlaying);
     }
   };
 
@@ -52,6 +57,9 @@ export default function MainPage() {
                 color: white;
                 border-radius: 20px;
                 transition: transform 0.2s;
+                display: flex;
+                align-items: center;
+                justify-content: center;
               }
               .btn-flat:hover {
                 transform: scale(1.05);
@@ -60,11 +68,14 @@ export default function MainPage() {
               .btn-xxl {
                 padding: 1rem 1.5rem;
                 font-size: 1.5rem;
-              },
+              }
               .clickable-text {
                 cursor: pointer;
                 text-decoration: underline;
                 /* Add additional styling here if needed */
+              }
+              .icon {
+                margin-right: 8px;
               }
             `}
           </style>
@@ -77,11 +88,19 @@ export default function MainPage() {
             <Button as={Link} to="/signin" variant="flat" size="xxl">
               해협 시작하기
             </Button>
-            {!isAudioPlaying && (
-              <Button variant="flat" size="xxl" onClick={handleAudioPlay}>
-                음악 재생
-              </Button>
-            )}
+            <Button variant="flat" size="xxl" onClick={handleAudioToggle}>
+              {isAudioPlaying ? (
+                <>
+                  <FaPause className="icon" />
+                  음악 중지
+                </>
+              ) : (
+                <>
+                  <FaPlay className="icon" />
+                  음악 재생
+                </>
+              )}
+            </Button>
           </div>
           <div className="wave"></div>
           <div className="wave -three"></div>

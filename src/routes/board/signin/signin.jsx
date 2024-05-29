@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Form, Button, Container, Row, Col, Alert } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./signin.css"; // CSS 파일 추가
 
 export default function Signin() {
@@ -10,6 +10,7 @@ export default function Signin() {
   });
   const [validated, setValidated] = useState(false);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,7 +20,7 @@ export default function Signin() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setValidated(true);
 
@@ -30,10 +31,29 @@ export default function Signin() {
       setError("Please fill out all fields.");
       return;
     }
+    try {
+      const response = await fetch("https://your-server-endpoint/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    // 예시: 서버 요청을 성공적으로 완료한 경우
-    setError("");
-    alert("로그인 성공");
+      const data = await response.json();
+
+      if (response.ok) {
+        // 로그인 성공
+        setError("");
+        alert("로그인 성공");
+        navigate("/"); // 홈 화면으로 이동
+      } else {
+        // 로그인 실패
+        setError(data.message || "Login failed. Please try again.");
+      }
+    } catch (error) {
+      setError("An error occurred. Please try again later.");
+    }
   };
 
   return (
