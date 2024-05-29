@@ -15,20 +15,10 @@ body {
 }
 
 #root {
-  animation: gradientBackground 10s infinite;
+  animation: gradientBackground 20s infinite;
+  width: 100vw;
 }
 
-/* @keyframes gradientBackground {
-  0% {
-    background-color: #09425d;
-  }
-  50% {
-    background-color: #21dbdb;
-  }
-  100% {
-    background-color: #1aacac;
-  }
-} */
 .container {
   font-family: "TTLaundryGothicB";
   padding: 20px;
