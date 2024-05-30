@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://172.16.1.84:4000", // 백엔드 서버 URL
+        target: "https://15.164.48.114:4000", // 백엔드 서버 URL
         changeOrigin: true,
         secure: false, // HTTPS 프록시를 사용할 경우 인증서를 무시하도록 설정
       },
