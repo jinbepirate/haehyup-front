@@ -32,12 +32,15 @@ export default function Signin() {
       return;
     }
     try {
-      const response = await fetch("https://your-server-endpoint/api/login", {
+      const response = await fetch("https://172.16.1.84:4000/users/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          uid: formData.username,
+          password: formData.password,
+        }),
       });
 
       const data = await response.json();
@@ -46,7 +49,7 @@ export default function Signin() {
         // 로그인 성공
         setError("");
         alert("로그인 성공");
-        navigate("/"); // 홈 화면으로 이동
+        navigate("/home"); // 홈 화면으로 이동
       } else {
         // 로그인 실패
         setError(data.message || "Login failed. Please try again.");
