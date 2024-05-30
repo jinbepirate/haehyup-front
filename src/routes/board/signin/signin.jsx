@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Form, Button, Container, Row, Col, Alert } from "react-bootstrap";
-import MyNavbar from "../../../components/MyNavbar/MyNavbar";
-import { Cpu } from "react-bootstrap-icons";
+import { Link, useNavigate } from "react-router-dom";
+import "./signin.css"; // CSS 파일 추가
 
 export default function Signin() {
   const [formData, setFormData] = useState({
@@ -10,6 +10,7 @@ export default function Signin() {
   });
   const [validated, setValidated] = useState(false);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,7 +20,7 @@ export default function Signin() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setValidated(true);
 
@@ -30,34 +31,52 @@ export default function Signin() {
       setError("Please fill out all fields.");
       return;
     }
+    try {
+      const response = await fetch("https://172.16.1.84:4000/users/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          uid: formData.username,
+          password: formData.password,
+        }),
+      });
 
-    // 예시: 서버 요청을 성공적으로 완료한 경우
-    setError("");
-    alert("Signin successful!");
+      const data = await response.json();
+
+      if (response.ok) {
+        // 로그인 성공
+        setError("");
+        alert("로그인 성공");
+        navigate("/home"); // 홈 화면으로 이동
+      } else {
+        // 로그인 실패
+        setError(data.message || "Login failed. Please try again.");
+      }
+    } catch (error) {
+      setError("An error occurred. Please try again later.");
+    }
   };
 
   return (
     <>
-      <MyNavbar />
-      <Container>
+      <div className="text-center">
+        <Link to="http://localhost:5173/">
+          <img
+            src="src/img/haehyup-logo.jpg"
+            alt=""
+            className="signin-image mb-3"
+          />
+        </Link>
+      </div>
+      <Container className="signin-container">
         <Row className="justify-content-md-center mt-5">
           <Col md={6}>
-            <div style={{ textAlign: "center" }}>
-              <img
-                src="src/img/login-jinbe.png"
-                alt=""
-                style={{
-                  width: "200px",
-                  height: "auto",
-                  borderRadius: "10px", // 이미지를 둥글게 만들기 위해 borderRadius 추가
-                  display: "block", // 이미지를 블록 요소로 만듭니다.
-                  margin: "0 auto", // 이미지를 중앙에 배치합니다.
-                }}
-                className="mb-3"
-              />
-            </div>
-            <h1>Sign In</h1>
+            <h1 className="text-center">Log In</h1>
             {error && <Alert variant="danger">{error}</Alert>}
+            <br />
+            <br />
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
@@ -87,13 +106,23 @@ export default function Signin() {
                 </Form.Control.Feedback>
               </Form.Group>
 
-              <Button variant="primary" type="submit" className="mt-4">
-                Sign In
-              </Button>
+              <div className="d-grid gap-2 mt-4">
+                <Button variant="primary" type="submit">
+                  Log In
+                </Button>
+                <Button as={Link} to="/signup" variant="secondary">
+                  Sign Up
+                </Button>
+              </div>
             </Form>
           </Col>
         </Row>
       </Container>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </>
   );
 }

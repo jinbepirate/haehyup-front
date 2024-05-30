@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Form, Button, Container, Row, Col, Alert } from "react-bootstrap";
-import MyNavbar from "../../../components/MyNavbar/MyNavbar";
 import "../../../App.css";
 
 export default function Signup() {
@@ -49,7 +48,7 @@ export default function Signup() {
       }
 
       const result = await response.json();
-
+      console.log(result);
       // 성공적으로 회원가입이 완료되면, 오류 메시지를 초기화
       setError("");
       alert("Signup successful!");
@@ -68,7 +67,6 @@ export default function Signup() {
 
   return (
     <>
-      <MyNavbar />
       <Container style={{ fontFamily: "TTLaundryGothicB" }}>
         <Row className="justify-content-md-center mt-5">
           <Col
