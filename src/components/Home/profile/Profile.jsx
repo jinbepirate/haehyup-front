@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import {
   MDBCard,
-  MDBCardText,
   MDBCardBody,
   MDBCardImage,
   MDBBtn,
@@ -9,6 +8,12 @@ import {
 } from "mdb-react-ui-kit";
 // import { getUserById } from "~/lib/apis/user/userInfo";
 import "./Profile.css";
+
+import profileImage1 from "../../../img/profileImage/1.jpeg";
+import profileImage2 from "../../../img/profileImage/2.jpeg";
+import profileImage3 from "../../../img/profileImage/3.jpeg";
+import profileImage4 from "../../../img/profileImage/4.jpeg";
+import profileImage5 from "../../../img/profileImage/5.jpeg";
 
 async function getUserProfile() {
   try {
@@ -52,20 +57,35 @@ export default function ProfileComponent() {
     }
     fetchProfile();
   }, []);
+
+  // userImgId에 따라 이미지를 선택하는 함수
+  const getProfileImage = (userImgId) => {
+    switch (userImgId) {
+      case "1":
+        return profileImage1;
+      case "2":
+        return profileImage2;
+      case "3":
+        return profileImage3;
+      case "4":
+        return profileImage4;
+      case "5":
+        return profileImage5;
+      default:
+        return "default-profile.png"; // 기본 이미지
+    }
+  };
+
   console.log(profile);
   return (
     <MDBCard className="profile-card">
       <MDBCardBody className="text-center">
         <div className="mt-3 mb-4">
           <MDBCardImage
-            src={
-              profile.userImgId
-                ? `/images/${profile.userImgId}.png`
-                : "default-profile.png"
-            }
+            src={getProfileImage(profile.userImgId)}
             className="rounded-circle"
             fluid
-            style={{ width: "100px" }}
+            style={{ width: "200px", height: "200px" }}
           />
         </div>
 

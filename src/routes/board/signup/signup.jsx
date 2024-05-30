@@ -34,24 +34,16 @@ export default function Signup() {
     console.log(formData.username, formData.password);
 
     try {
-      const response = await fetch(
-        "https://172.16.1.84:4000/api/users/signup",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            uid: formData.username,
-            password: formData.password,
-          }),
-        }
-      );
-
-      if (response.ok) {
-        alert("로그인 성공");
-        navigate("/signin"); // 홈 화면으로 이동
-      }
+      const response = await fetch("/api/users/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          uid: formData.username,
+          password: formData.password,
+        }),
+      });
 
       if (!response.ok) {
         throw new Error("Signup failed");
@@ -62,7 +54,7 @@ export default function Signup() {
       // 성공적으로 회원가입이 완료되면, 오류 메시지를 초기화
       setError("");
       alert("Signup successful!");
-
+      navigate("/signin");
       // 폼 데이터 초기화
       setFormData({
         username: "",
