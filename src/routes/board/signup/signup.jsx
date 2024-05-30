@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Form, Button, Container, Row, Col, Alert } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import "../../../App.css";
 
 export default function Signup() {
@@ -11,6 +12,7 @@ export default function Signup() {
   });
   const [validated, setValidated] = useState(false);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -45,6 +47,11 @@ export default function Signup() {
           }),
         }
       );
+
+      if (response.ok) {
+        alert("로그인 성공");
+        navigate("/signin"); // 홈 화면으로 이동
+      }
 
       if (!response.ok) {
         throw new Error("Signup failed");

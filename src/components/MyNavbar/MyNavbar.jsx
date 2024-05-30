@@ -11,7 +11,7 @@ const BRAND_TITLE = "HaeHyup";
 
 async function handleLogout() {
   try {
-    const response = await fetch("https://172.16.1.84:4000/api/users/logout", {
+    const response = await fetch("/api/users/logout", {
       method: "POST", // or 'GET' depending on the server implementation
     });
 

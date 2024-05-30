@@ -24,15 +24,13 @@ export default function Signin() {
     e.preventDefault();
     setValidated(true);
 
-    // 추가적인 로그인 로직을 여기에 작성합니다.
-    // 예: 서버로 폼 데이터를 전송하여 인증
-
     try {
-      const response = await fetch("https://172.16.1.84:4000/api/users/login", {
+      const response = await fetch("/api/users/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
+        credentials: "include",
         body: JSON.stringify({
           uid: formData.username,
           password: formData.password,

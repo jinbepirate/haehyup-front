@@ -6,7 +6,11 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/api": "http://localhost:3000",
+      "/api": {
+        target: "https://172.16.1.84:4000", // 백엔드 서버 URL
+        changeOrigin: true,
+        secure: false, // HTTPS 프록시를 사용할 경우 인증서를 무시하도록 설정
+      },
     },
   },
   resolve: {
@@ -16,8 +20,7 @@ export default defineConfig({
       { find: "~/lib", replacement: "/src/lib" },
       { find: "~/routers", replacement: "/src/routers" },
       { find: "~/routes", replacement: "/src/routes" },
-      { find: "~/img", replacement: "/src/img"},
-      
+      { find: "~/img", replacement: "/src/img" },
     ],
   },
 });
