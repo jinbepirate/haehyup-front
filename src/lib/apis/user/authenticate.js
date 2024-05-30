@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://elandland.site:4000/users";
+const BASE_URL = "https://elandland.site:4000/users";
 const service = axios.create({
   baseURL: BASE_URL,
 });
