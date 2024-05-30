@@ -27,12 +27,8 @@ export default function Signin() {
     // 추가적인 로그인 로직을 여기에 작성합니다.
     // 예: 서버로 폼 데이터를 전송하여 인증
 
-    if (formData.email === "" || formData.password === "") {
-      setError("Please fill out all fields.");
-      return;
-    }
     try {
-      const response = await fetch("https://172.16.1.84:4000/users/login", {
+      const response = await fetch("https://172.16.1.84:4000/api/users/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -79,12 +75,12 @@ export default function Signin() {
             <br />
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
               <Form.Group controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
+                <Form.Label>User Name</Form.Label>
                 <Form.Control
                   required
-                  type="email"
-                  name="email"
-                  value={formData.email}
+                  type="text"
+                  name="username"
+                  value={formData.username}
                   onChange={handleChange}
                 />
                 <Form.Control.Feedback type="invalid">

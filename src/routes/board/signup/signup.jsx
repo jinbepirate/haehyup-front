@@ -32,16 +32,19 @@ export default function Signup() {
     console.log(formData.username, formData.password);
 
     try {
-      const response = await fetch("https://172.16.1.84:4000/users/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          uid: formData.username,
-          password: formData.password,
-        }),
-      });
+      const response = await fetch(
+        "https://172.16.1.84:4000/api/users/signup",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            uid: formData.username,
+            password: formData.password,
+          }),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Signup failed");

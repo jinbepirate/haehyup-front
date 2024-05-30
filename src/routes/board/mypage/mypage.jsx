@@ -36,6 +36,32 @@ const MyPage = () => {
   });
 
   // 마운트될 때 사용자 정보를 불러오는 가정
+
+  // useEffect(() => {
+  //   // 실제 API 호출을 통해 사용자 정보를 가져오는 로직 구현
+  //   const fetchUserInfo = async () => {
+  //     try {
+  //       const response = await fetch("/api/mypage?userId=12345"); // 실제 userId를 넣어주세요
+  //       if (response.ok) {
+  //         const data = await response.json();
+  //         setUserInfo({
+  //           name: data.user.uname,
+  //           email: data.user.email,
+  //           profileImage: data.user.profileImage,
+  //           themeRecord: data.themeRecord,
+  //           studyRecord: data.studyRecord,
+  //         });
+  //       } else {
+  //         console.error("Failed to fetch user info:", response.statusText);
+  //       }
+  //     } catch (error) {
+  //       console.error("Error fetching user info:", error);
+  //     }
+  //   };
+
+  //   fetchUserInfo();
+  // }, []);
+
   useEffect(() => {
     // API 호출을 통해 사용자 정보를 가져오는 로직을 구현
     // 이 예제에서는 예시 데이터를 사용
