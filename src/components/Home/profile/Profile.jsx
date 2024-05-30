@@ -6,7 +6,6 @@ import {
   MDBCardImage,
   MDBBtn,
   MDBTypography,
-  MDBBadge,
 } from "mdb-react-ui-kit";
 import { getUserById } from "~/lib/apis/user/userInfo";
 import "./Profile.css";
