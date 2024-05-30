@@ -38,7 +38,7 @@ export default function ThemeComponent(props) {
     margin: "20px",
   };
   const handleLearnMoreClick = () => {
-    window.location.href = `https://192.168.219.101:4000/${activeIndex}`;
+    window.location.href = `https://localhost:4000/${activeIndex}`; //192.168.219.101
   };
 
   return (
