@@ -14,6 +14,11 @@ import {
 } from "chart.js";
 import "./mypage.css";
 import MyNavbar from "../../../components/MyNavbar/MyNavbar";
+import profileImage1 from "../../../img/profileImage/1.jpeg";
+import profileImage2 from "../../../img/profileImage/2.jpeg";
+import profileImage3 from "../../../img/profileImage/3.jpeg";
+import profileImage4 from "../../../img/profileImage/4.jpeg";
+import profileImage5 from "../../../img/profileImage/5.jpeg";
 
 // Chart.js 등록
 ChartJS.register(
@@ -32,9 +37,10 @@ const MyPage = () => {
   const [userInfo, setUserInfo] = useState({
     name: "",
     email: "",
-    studyList: [],
+    profileImage: "",
+    themeRecord: {},
+    studyRecord: { studyDate: [], studyTime: [] },
   });
-
   // 마운트될 때 사용자 정보를 불러오는 가정
 
   useEffect(() => {
@@ -42,13 +48,14 @@ const MyPage = () => {
     const fetchUserInfo = async () => {
       try {
         const response = await fetch("/api/mypage"); // 실제 userId를 넣어주세요
-        console.log(response);
+
         if (response.ok) {
           const data = await response.json();
+          console.log(data);
           setUserInfo({
             name: data.user.uname,
             email: data.user.email,
-            profileImage: data.user.profileImage,
+            profileImage: data.user.userImgId,
             themeRecord: data.themeRecord,
             studyRecord: data.studyRecord,
           });
@@ -104,6 +111,24 @@ const MyPage = () => {
         },
       ],
     };
+  };
+
+  // userImgId에 따라 이미지를 선택하는 함수
+  const getProfileImage = (userImgId) => {
+    switch (userImgId) {
+      case "1":
+        return profileImage1;
+      case "2":
+        return profileImage2;
+      case "3":
+        return profileImage3;
+      case "4":
+        return profileImage4;
+      case "5":
+        return profileImage5;
+      default:
+        return "default-profile.png"; // 기본 이미지
+    }
   };
 
   // 날짜별 총 공부 시간을 계산하는 함수
@@ -293,7 +318,7 @@ const MyPage = () => {
 
               <Image
                 className="profile"
-                src="src/img/jinbe.jpeg"
+                src={getProfileImage(userInfo.profileImage)}
                 roundedCircle
               />
 
