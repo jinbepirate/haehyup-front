@@ -37,55 +37,60 @@ const MyPage = () => {
 
   // 마운트될 때 사용자 정보를 불러오는 가정
 
-  // useEffect(() => {
-  //   // 실제 API 호출을 통해 사용자 정보를 가져오는 로직 구현
-  //   const fetchUserInfo = async () => {
-  //     try {
-  //       const response = await fetch("/api/mypage?userId=12345"); // 실제 userId를 넣어주세요
-  //       if (response.ok) {
-  //         const data = await response.json();
-  //         setUserInfo({
-  //           name: data.user.uname,
-  //           email: data.user.email,
-  //           profileImage: data.user.profileImage,
-  //           themeRecord: data.themeRecord,
-  //           studyRecord: data.studyRecord,
-  //         });
-  //       } else {
-  //         console.error("Failed to fetch user info:", response.statusText);
-  //       }
-  //     } catch (error) {
-  //       console.error("Error fetching user info:", error);
-  //     }
-  //   };
-
-  //   fetchUserInfo();
-  // }, []);
-
   useEffect(() => {
-    // API 호출을 통해 사용자 정보를 가져오는 로직을 구현
-    // 이 예제에서는 예시 데이터를 사용
-    setUserInfo({
-      name: "홍길동",
-      email: "hong@example.com",
-      studyList: [
-        { id: 1, title: "바다", date: "2024-05-01", hours: 2 },
-        { id: 2, title: "비", date: "2024-05-01", hours: 1 },
-        { id: 3, title: "숲", date: "2024-05-02", hours: 3 },
-        { id: 4, title: "바다", date: "2024-05-03", hours: 2 },
-        { id: 5, title: "비", date: "2024-05-03", hours: 2 },
-      ],
-    });
+    // 실제 API 호출을 통해 사용자 정보를 가져오는 로직 구현
+    const fetchUserInfo = async () => {
+      try {
+        const response = await fetch("/api/mypage"); // 실제 userId를 넣어주세요
+        console.log(response);
+        if (response.ok) {
+          const data = await response.json();
+          setUserInfo({
+            name: data.user.uname,
+            email: data.user.email,
+            profileImage: data.user.profileImage,
+            themeRecord: data.themeRecord,
+            studyRecord: data.studyRecord,
+          });
+        } else {
+          console.error("Failed to fetch user info:", response.statusText);
+        }
+      } catch (error) {
+        console.error("Error fetching user info:", error);
+      }
+    };
+
+    fetchUserInfo();
   }, []);
+
+  // useEffect(() => {
+  //   // API 호출을 통해 사용자 정보를 가져오는 로직을 구현
+  //   // 이 예제에서는 예시 데이터를 사용
+  //   setUserInfo({
+  //     name: "홍길동",
+  //     email: "hong@example.com",
+  //     studyList: [
+  //       { id: 1, title: "바다", date: "2024-05-01", hours: 2 },
+  //       { id: 2, title: "비", date: "2024-05-01", hours: 1 },
+  //       { id: 3, title: "숲", date: "2024-05-02", hours: 3 },
+  //       { id: 4, title: "바다", date: "2024-05-03", hours: 2 },
+  //       { id: 5, title: "비", date: "2024-05-03", hours: 2 },
+  //     ],
+  //   });
+  // }, []);
 
   // 공부 테마별 총 공부 시간을 계산하는 함수
   const getBarChartData = () => {
     const themes = ["바다", "비", "숲"];
-    const themeHours = themes.map((theme) =>
-      userInfo.studyList
-        .filter((study) => study.title === theme)
-        .reduce((sum, study) => sum + study.hours, 0)
-    );
+    const themeHours =
+      themes &&
+      themes.map(
+        (theme) =>
+          userInfo.studyList &&
+          userInfo.studyList
+            .filter((study) => study.title === theme)
+            .reduce((sum, study) => sum + study.hours, 0)
+      );
 
     return {
       labels: themes,
@@ -103,12 +108,20 @@ const MyPage = () => {
 
   // 날짜별 총 공부 시간을 계산하는 함수
   const getLineChartData = () => {
-    const dates = [...new Set(userInfo.studyList.map((study) => study.date))];
-    const dateHours = dates.map((date) =>
-      userInfo.studyList
-        .filter((study) => study.date === date)
-        .reduce((sum, study) => sum + study.hours, 0)
-    );
+    const dates = [
+      ...new Set(
+        userInfo.studyList && userInfo.studyList.map((study) => study.date)
+      ),
+    ];
+    const dateHours =
+      dates &&
+      dates.map(
+        (date) =>
+          userInfo.studyList &&
+          userInfo.studyList
+            .filter((study) => study.date === date)
+            .reduce((sum, study) => sum + study.hours, 0)
+      );
 
     return {
       labels: dates,
@@ -285,7 +298,6 @@ const MyPage = () => {
               />
 
               <p>이름: {userInfo.name}</p>
-              <p>이메일: {userInfo.email}</p>
             </section>
             <section>
               <br></br>
