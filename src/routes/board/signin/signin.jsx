@@ -45,7 +45,7 @@ export default function Signin() {
         setError("");
 
         alert("로그인 성공");
-        Cookies.set('token', data.token, { expires: 7, path: '/' });
+        Cookies.set('authToken', data.token, { expires: 7, path: '/' });
         navigate("/home"); // 홈 화면으로 이동
       } else {
         // 로그인 실패
