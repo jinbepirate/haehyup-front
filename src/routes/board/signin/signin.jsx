@@ -58,7 +58,8 @@ export default function Signin() {
       <div className="text-center">
         <Link to="http://15.164.48.114:5175/">
           <img
-            src="src/img/haehyup-logo.jpg"
+            // src="src/img/haehyup-logo.jpg"
+            src="src\img\haehyup-logo.jpg"
             alt=""
             className="signin-image mb-3"
           />
