@@ -56,7 +56,7 @@ export default function Signin() {
   return (
     <>
       <div className="text-center">
-        <Link to="http://15.164.48.114:5173/">
+        <Link to="http://15.164.48.114:5175/">
           <img
             src="src/img/haehyup-logo.jpg"
             alt=""
