@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Form, Button, Container, Row, Col, Alert } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import "./signin.css"; // CSS 파일 추가
+import Cookies from 'js-cookie';
 
 export default function Signin() {
   const [formData, setFormData] = useState({
