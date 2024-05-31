@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Form, Button, Container, Row, Col, Alert } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import "../../../App.css";
+import signUp from "../../../img/sign-up.png";
 
 export default function Signup() {
   const [formData, setFormData] = useState({
@@ -89,7 +90,7 @@ export default function Signup() {
               <br /> 얼마 남지 않았어요!
             </p>
             <img
-              src="src/img/sign-up.png"
+              src={signUp}
               alt="Signup illustration"
               className="img-fluid mt-3"
             />
