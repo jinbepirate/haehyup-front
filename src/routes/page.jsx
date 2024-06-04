@@ -5,6 +5,7 @@ import { CSSTransition } from "react-transition-group";
 import { FaPlay, FaPause } from "react-icons/fa";
 import "./MainPage.css";
 import sampleAudio from "../bgm/rain.mp3";
+import haehyupLogo from "../img/haehyup-logo.jpg";
 
 export default function MainPage() {
   //API 를 사용해서 변경할 수도 있음.
@@ -44,7 +45,7 @@ export default function MainPage() {
     <CSSTransition in={true} appear={true} timeout={800} classNames="fade">
       <div className="box">
         <div className="main-page">
-          <img src="src\img\haehyup-logo.jpg" alt="HaeHyup Logo" />
+          <img src={haehyupLogo} alt="HaeHyup Logo" />
           <h1>
             <b style={{ color: "white", textShadow: "2px 2px 4px #000" }}>
               Study with HaeHyup

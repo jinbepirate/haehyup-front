@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Form, Button, Container, Row, Col, Alert } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import "./signin.css"; // CSS 파일 추가
+import Cookies from 'js-cookie';
 
 export default function Signin() {
   const [formData, setFormData] = useState({
@@ -42,7 +43,9 @@ export default function Signin() {
       if (response.ok) {
         // 로그인 성공
         setError("");
+
         alert("로그인 성공");
+        Cookies.set('authToken', data.token, { expires: 7, path: '/' });
         navigate("/home"); // 홈 화면으로 이동
       } else {
         // 로그인 실패
@@ -58,7 +61,8 @@ export default function Signin() {
       <div className="text-center">
         <Link to="http://elandland.site:5175/">
           <img
-            src="src/img/haehyup-logo.jpg"
+            // src="src/img/haehyup-logo.jpg"
+            src="src\img\haehyup-logo.jpg"
             alt=""
             className="signin-image mb-3"
           />
